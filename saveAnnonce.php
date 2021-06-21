@@ -1,4 +1,6 @@
 <?php
+
+namespace Model;
 require_once "core/model/Garage.php";
 require_once "core/model/Annonce.php";
 require_once "core/utils.php";
