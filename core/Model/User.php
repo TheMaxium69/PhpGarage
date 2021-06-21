@@ -2,10 +2,10 @@
 
 namespace Model;
 
-require_once "core/Model/Model.php";
+require_once 'core/Model/Model.php';
 
 
 class User extends Model
 {
-    protected $table = "users";
+    protected $table = 'users';
 }
