@@ -10,11 +10,11 @@
                             'id'
                         ]; ?>" >
                         <div class="form-group">
-                                <textarea name="name" cols="30" rows="1"></textarea>
+                                <textarea name="name" cols="30" rows="1" placeholder="name"></textarea>
                         </div>
                         <div class="form-group">
                         
-                        <textarea name="price" cols="30" rows="1"></textarea>
+                        <textarea name="price" cols="30" rows="1" placeholder="price"></textarea>
 
                         </div>
                         <div class="form-group">
