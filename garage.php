@@ -1,8 +1,11 @@
 <?php
+namespace Model;
 
 require_once "core/model/Garage.php";
 require_once "core/model/Annonce.php";
+require_once "core/model/User.php";
 require_once "core/utils.php";
+
 
 
 $garage_id = null;
@@ -17,7 +20,6 @@ if(!$garage_id){
 }
 
 
-
 $modelGarage = new Garage();
 $garage = $modelGarage->find($garage_id);
 
@@ -25,9 +27,16 @@ $garage = $modelGarage->find($garage_id);
 
 $modelAnnonce = new Annonce();
 $annonces = $modelAnnonce->findAllByGarage($garage_id);
+/* 
+$modelUser = new User();
 
+$modelUser->delete(3);
 
+$toutesMesUsers = $modelUser->findAll();
 
+var_dump($toutesMesUsers);
+
+die(); */
 
 
   $titreDeLaPage = $garage['name'];
