@@ -10,7 +10,7 @@ abstract class Model
     protected $table;
 
     public function __construct(){
-         $this->pdo = getPdo();
+         $this->pdo = \database::getPdo();
     }
 
 
