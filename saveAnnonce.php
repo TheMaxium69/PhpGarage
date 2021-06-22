@@ -1,4 +1,5 @@
 <?php
-require_once "core/Controllers/Annonce.php";
+require_once "core/autoloading.php";
 $controller = new \Controllers\Annonce();
-$controller->create();
+  $controller->save();
+

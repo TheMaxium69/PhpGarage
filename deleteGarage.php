@@ -1,6 +1,6 @@
 <?php
+  
 
-require_once "core/Controllers/Garage.php";
-$controller = new \Controllers\Garage();
-$controller->suppr();
-
+  require_once "core/autoloading.php";
+  $controller = new \Controllers\Garage();
+  $controller->suppr();
