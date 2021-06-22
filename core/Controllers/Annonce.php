@@ -2,7 +2,6 @@
 
 namespace Controllers;
 
-require_once "core/utils.php";
 
 class Annonce extends Controller
 {
@@ -38,7 +37,7 @@ class Annonce extends Controller
         
         $this->model->delete($annonce_id);
         
-        redirect('garage.php?id='.$annonce['garage_id']);
+        \Http::redirect('index.php?controller=garage&task=show&id='.$annonce['garage_id']);
     }
 
 
@@ -83,7 +82,7 @@ class Annonce extends Controller
         
         $this->model->insert($name,$price,$garage_id);
         
-        redirect('garage.php?id='.$garage_id);
+        \Http::redirect('index.php?controller=garage&task=show&id='.$garage_id);
         
 
     }

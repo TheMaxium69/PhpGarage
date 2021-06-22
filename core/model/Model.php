@@ -2,7 +2,7 @@
 
 namespace Model;
 
-require_once "core/database.php";
+//require_once "core/database.php";
 
 abstract class Model
 {
@@ -10,7 +10,7 @@ abstract class Model
     protected $table;
 
     public function __construct(){
-         $this->pdo = \database::getPdo();
+         $this->pdo = \Database::getPdo();
     }
 
 

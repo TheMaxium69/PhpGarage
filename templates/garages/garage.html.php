@@ -7,7 +7,7 @@
 
 <a href="index.php" class="btn btn-primary">Retour aux garages</a>
 
-                <form action="saveAnnonce.php" method="post">
+                <form action="index.php?controller=annonce&task=save" method="post">
                 
                         <input type="hidden" name="garageId" value="<?php echo $garage['id'] ?>" >
                         <div class="form-group">
@@ -37,7 +37,7 @@
                 echo $annonce['price'];
                 echo "<br>";
 ?>
-                <a href="deleteAnnonce.php?id=<?php echo $annonce['id'] ?>" class="btn btn-danger">supprimer</a>
+                <a href="index.php?controller=annonce&task=suppr&id=<?php echo $annonce['id'] ?>" class="btn btn-danger">supprimer</a>
 
 
 

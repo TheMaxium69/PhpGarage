@@ -3,7 +3,6 @@
 namespace Controllers;
 
 
-require_once "core/utils.php";
 
 class Garage extends Controller
 {   
@@ -33,7 +32,7 @@ class Garage extends Controller
                     $titreDeLaPage = "Garages";
 
                     //on affiche
-                    render( "garages/garages" ,
+                    \Rendering::render( "garages/garages" ,
                             compact('garages', 'titreDeLaPage')  
                         );
 
@@ -65,14 +64,13 @@ class Garage extends Controller
                
                 $garage = $this->model->find($garage_id);
 
-
-
+                    
                 $modelAnnonce = new \Model\Annonce();
                 $annonces = $modelAnnonce->findAllByGarage($garage_id);
   
                 $titreDeLaPage = $garage['name'];
 
-                render('garages/garage',
+                \Rendering::render('garages/garage',
                         compact('garage', 'annonces','titreDeLaPage')       
                 );
     }
@@ -103,9 +101,9 @@ class Garage extends Controller
             }
             // alors , faire la requete de suppression
             
-            $modelGarage->delete($garage_id);
+            $this->model->delete($garage_id);
             
-            redirect('index.php');
+            \Http::redirect('index.php');
 
         }
 
