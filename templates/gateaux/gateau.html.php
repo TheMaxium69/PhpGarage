@@ -20,4 +20,6 @@ echo "<br>";
 echo $recipe['desc'];
 echo "<br>";
 ?>
+    <a href="index.php?controller=recipe&task=supp&id=<?php echo $recipe['id'];?>" class="btn btn-danger">Supprimer la recette</a>
+    <hr>
 <?php } ?>
