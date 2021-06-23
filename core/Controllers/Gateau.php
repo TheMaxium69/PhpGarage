@@ -113,4 +113,25 @@ class Gateau extends Controller
         \Http::redirect('index.php?controller=gateau&task=index');
     }
 
+    public function add(){
+
+        $gateauAdd = false;
+
+        if(!empty($_POST['name']) && !empty($_POST['gout'])){
+            $name = htmlspecialchars($_POST['name']);
+            $gout = htmlspecialchars($_POST['gout']);
+            $gateauAdd = true;
+        }
+        
+        if ($gateauAdd == true) {
+            $this->model->insert($name, $gout);
+        }
+
+
+        $titreDeLaPage = "creer une page";
+        \Rendering::render('gateaux/addgateau',
+            compact('titreDeLaPage')
+        );
+    }
+
 }

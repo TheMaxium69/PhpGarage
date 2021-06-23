@@ -10,6 +10,8 @@
     <input type="submit" class="btn btn-success" value="Creer un gateau">
 </form>
 <hr>
+<a href="index.php?controller=gateau&task=add" class="btn btn-success">Créer un gateau avec une page</a>
+<hr>
 <?php foreach($gateaux as $gateau){?>
 
     <div class="row">
