@@ -28,7 +28,7 @@ class Gateau extends Controller
         $titreDeLaPage = "Gateaux";
 
         //on affiche
-        \Rendering::render("garages/garages",
+        \Rendering::render("gateaux/gateaux",
             compact('gateaux', 'titreDeLaPage')
         );
 
