@@ -122,7 +122,7 @@ class Gateau extends Controller
             $gout = htmlspecialchars($_POST['gout']);
             $gateauAdd = true;
         }
-        
+
         if ($gateauAdd == true) {
             $this->model->insert($name, $gout);
         }
