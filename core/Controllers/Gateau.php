@@ -57,7 +57,60 @@ class Gateau extends Controller
 
         $this->model->delete($gateau_id);
 
-        \Http::redirect('index.php');
+        \Http::redirect('index.php?controller=gateau&task=index');
 
     }
+
+    public function show(){
+
+
+
+        $gateau_id = null;
+
+        if(!empty($_GET['id']) && ctype_digit($_GET['id'])){
+
+            $gateau_id = $_GET['id'];
+        }
+
+        if(!$gateau_id){
+            die("il faut absolument entrer un id dans l'url pour que le script fonctionne");
+        }
+
+
+
+        $gateau = $this->model->find($gateau_id);
+
+
+        $modelAnnonce = new \Model\Annonce();
+        $annonces = $modelAnnonce->findAllByGarage($gateau_id);
+
+        $titreDeLaPage = $gateau['name'];
+
+        \Rendering::render('gateaux/gateau',
+            compact('gateau', 'annonces','titreDeLaPage')
+        );
+    }
+
+    public function create(){
+
+        if(!empty($_POST['name']) ){
+            $name = htmlspecialchars($_POST['name']);
+        }
+
+        if(!empty($_POST['gout']) ){
+            $gout = htmlspecialchars($_POST['gout']);
+        }
+
+
+        if(!$name || !$gout ){
+            die("formulaire mal rempli");
+        }
+
+
+        $this->model->insert($name,$gout);
+
+
+        \Http::redirect('index.php?controller=gateau&task=index');
+    }
+
 }
