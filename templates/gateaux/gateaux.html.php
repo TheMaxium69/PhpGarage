@@ -9,6 +9,7 @@
     </div>
     <input type="submit" class="btn btn-success" value="Creer un gateau">
 </form>
+<hr>
 <?php foreach($gateaux as $gateau){?>
 
     <div class="row">
