@@ -26,5 +26,23 @@ class Gateau extends Model
             'gout' => $gout,
         ]);
     }
+    /**
+     * @param int $id
+     * @param string $name
+     * @param string $gout
+     *
+     * ajout d'un gateau
+     * methode qui ajoute un gateau en utilisant le post du formulaire du geteau qui a été rucpere dans le controleur
+     */
+    function update(int $id, string $name, string $gout) : void
+    {
 
+        $maRequeteUpdateGateau = $this->pdo->prepare("UPDATE gateaux SET name=:name,gout=:gout WHERE id=:id");
+
+        $maRequeteUpdateGateau->execute([
+            'id' => $id,
+            'name' => $name,
+            'gout' => $gout,
+        ]);
+    }
 }

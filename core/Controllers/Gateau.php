@@ -125,13 +125,61 @@ class Gateau extends Controller
 
         if ($gateauAdd == true) {
             $this->model->insert($name, $gout);
+
+            \Http::redirect("index.php");
+        }else{
+
+            $gateauEdit = false;
+
+            if( !empty($_GET['id']) && ctype_digit($_GET['id'])   ){
+
+                $gateau_id = $_GET['id'];
+                $gateauEdit = true;
+
+            }
+
+
+            if(!$gateauEdit){
+                $gateau = null;
+                $titreDeLaPage = "nouveau gateau";
+                \Rendering::render('gateaux/addgateau',
+                    compact('gateau','titreDeLaPage'));
+            }else{
+
+                $gateau = $this->model->find($gateau_id);
+                $gateauName = $gateau['name'];
+
+
+                $titreDeLaPage = "Editer $gateauName";
+                \Rendering::render('gateaux/addgateau',
+                    compact('gateau','titreDeLaPage'));
+
+            }
+
+
+
         }
 
+    }
 
-        $titreDeLaPage = "creer une page";
-        \Rendering::render('gateaux/addgateau',
-            compact('titreDeLaPage')
-        );
+    public function edit(){
+
+        if(!empty($_POST['name']) && !empty($_POST['gout']) && !empty($_POST['id']) && ctype_digit($_POST['id'])){
+
+            $gateau_id = $_POST['id'];
+            $name = htmlspecialchars($_POST['name']);
+            $gout = htmlspecialchars($_POST['gout']);
+
+
+            $this->model->update($gateau_id, $name, $gout);
+
+
+            \Http::redirect("index.php?controller=gateau&task=show&id=$gateau_id");
+
+
+        }else{
+            die('tu essayes de faire quoi la ?');
+        }
     }
 
 }
