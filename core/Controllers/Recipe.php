@@ -41,52 +41,77 @@ class Recipe extends Controller
     }
 
 
-    /**
-     * enregistrer une annonce
-     *
-     *
+    public function add(){
 
-    public function save(){
+        $recipeAdd = false;
+
+            if(!empty($_GET['id']) && ctype_digit($_GET['id'])){
+                $gateau_id = $_GET['id'];
 
 
-        $garage_id = null;
-        $name = null;
-        $price = null;
+                if(!empty($_POST['name']) && !empty($_POST['desc'])){
+                    $name = htmlspecialchars($_POST['name']);
+                    $desc = htmlspecialchars($_POST['desc']);
+                    $recipeAdd = true;
+                }
 
-        if(!empty($_POST['garageId']) && ctype_digit($_POST['garageId']) ){
-            $garage_id = $_POST['garageId'];
+                if ($recipeAdd == true) {
+
+                    $this->model->insert($name, $desc, $gateau_id);
+
+                    \Http::redirect("index.php");
+                }else {
+
+                    $recipeEdit = false;
+
+
+                    if (!empty($_GET['idrecipe']) && ctype_digit($_GET['idrecipe'])){
+                        $recipe_id = $_GET['idrecipe'];
+                        $recipeEdit = true;
+                    }
+
+                    if (!$recipeEdit) {
+                        $recipe_id = null;
+                        $titreDeLaPage = "nouveau recette";
+                        \Rendering::render('gateaux/addrecipe',
+                            compact('gateau_id', 'recipe_id', 'titreDeLaPage'));
+                    } else {
+
+                            $recipe = $this->model->find($recipe_id);
+                        $recipeName = $recipe['name'];
+
+
+                        $titreDeLaPage = "Editer $recipeName";
+                        \Rendering::render('gateaux/addrecipe',
+                            compact('gateau_id',  'recipe', 'recipe_id', 'titreDeLaPage'));
+
+                    }
+
+
+            }
         }
-
-        if(!empty($_POST['name']) ){
-            $name = htmlspecialchars($_POST['name']);
-        }
-
-        if(!empty($_POST['price']) ){
-            $price = htmlspecialchars($_POST['price']);
-        }
-
-        if( !$garage_id || !$name || !$price ){
-            die("formulaire mal rempli");
-        }
-
-        $modelGarage = new \Model\Garage();
-
-        $garage = $modelGarage->find($garage_id);
-
-        if(!$garage){
-
-            die("garage inexistant");
-        }
-
-
-
-        $this->model->insert($name,$price,$garage_id);
-
-        \Http::redirect('index.php?controller=garage&task=show&id='.$garage_id);
-
 
     }
-     */
 
+    public function edit(){
+
+        if(!empty($_POST['name']) && !empty($_POST['desc']) && !empty($_POST['idrecipe']) && ctype_digit($_POST['idrecipe']) && !empty($_POST['idgateau']) && ctype_digit($_POST['idgateau'])){
+
+            $name = htmlspecialchars($_POST['name']);
+            $desc = htmlspecialchars($_POST['desc']);
+            $idrecipe = htmlspecialchars($_POST['idrecipe']);
+            $idgateau = htmlspecialchars($_POST['idgateau']);
+
+
+            $this->model->update($idrecipe, $name, $desc, $idgateau);
+
+
+            \Http::redirect("index.php?controller=gateau&task=show&id=$idgateau");
+
+
+        }else{
+            die('tu essayes de faire quoi la ?');
+        }
+    }
 
 }

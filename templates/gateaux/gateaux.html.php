@@ -1,4 +1,4 @@
-<form action="index.php?controller=gateau&task=create" method="post">
+<!--<form action="index.php?controller=gateau&task=create" method="post">
     <div>
         <label>Name</label>
         <input type="text" class="form-control" name="name" placeholder="Name">
@@ -9,7 +9,7 @@
     </div>
     <input type="submit" class="btn btn-success" value="Creer un gateau">
 </form>
-<hr>
+<hr>-->
 <a href="index.php?controller=gateau&task=add" class="btn btn-success">Créer un gateau avec une page</a>
 <hr>
 <?php foreach($gateaux as $gateau){?>

@@ -21,7 +21,6 @@ class Recipe extends Model
     {
 
 
-
         $resultat =  $this->pdo->prepare('SELECT * FROM recipe WHERE gateau_id = :gateau_id');
         $resultat->execute(["gateau_id"=> $gateau_id]);
 
@@ -31,26 +30,37 @@ class Recipe extends Model
 
 
     /**
-     * ajoute une annonce
+     * ajoute une recipe
      *
-     * @param string $name
-     * @param int $price
-     * @param int $garage_id
-     * @return void
+    */
+
+    function insert(string $name, string $desc, int $gateau_id)
+    {
+        $maRequeteInsertRecipe = $this->pdo->prepare("INSERT INTO `recipe`(`name`, `desc`, `gateau_id`) VALUES (:name, :desc, :gateau_id)");
 
 
-    function insert(string $name, int $price, int $garage_id) : void
+        $maRequeteInsertRecipe->execute([
+            'name' => $name,
+            'desc' => $desc,
+            'gateau_id' => $gateau_id
+        ]);
+    }
+    /**
+     * update une recipe
+     *
+     */
+
+    function update(int $id, string $name, string $desc, int $idgateau) : void
     {
 
-        $maRequeteSaveAnnonce = $this->pdo->prepare("INSERT INTO annonces (name, price, garage_id)
-          VALUES (:name, :price, :garage_id)");
+        $maRequeteUpdateRecipe = $this->pdo->prepare("UPDATE `recipe` SET `name`=:name,`desc`=:desc,`gateau_id`=:idgateau WHERE `id`=:id");
 
-        $maRequeteSaveAnnonce->execute([
+        $maRequeteUpdateRecipe->execute([
+            'id' => $id,
             'name' => $name,
-            'price' => $price,
-            'garage_id' => $garage_id
-
+            'desc' => $desc,
+            'idgateau' => $idgateau
         ]);
-    }*/
+    }
 
 }
