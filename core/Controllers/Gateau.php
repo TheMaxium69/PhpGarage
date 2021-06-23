@@ -81,13 +81,13 @@ class Gateau extends Controller
         $gateau = $this->model->find($gateau_id);
 
 
-        $modelAnnonce = new \Model\Annonce();
-        $annonces = $modelAnnonce->findAllByGarage($gateau_id);
+        $modelRecipe = new \Model\Recipe();
+        $recipes = $modelRecipe->findAllByGateau($gateau_id);
 
         $titreDeLaPage = $gateau['name'];
 
         \Rendering::render('gateaux/gateau',
-            compact('gateau', 'annonces','titreDeLaPage')
+            compact('gateau', 'recipes','titreDeLaPage')
         );
     }
 
