@@ -36,6 +36,7 @@ class Recipe extends Model
 
     function insert(string $name, string $desc, int $gateau_id)
     {
+
         $maRequeteInsertRecipe = $this->pdo->prepare("INSERT INTO `recipe`(`name`, `desc`, `gateau_id`) VALUES (:name, :desc, :gateau_id)");
 
 
@@ -44,6 +45,7 @@ class Recipe extends Model
             'desc' => $desc,
             'gateau_id' => $gateau_id
         ]);
+
     }
     /**
      * update une recipe
@@ -62,6 +64,13 @@ class Recipe extends Model
             'idgateau' => $idgateau
         ]);
     }
+
+    /**
+     * calculer le nombre de recipe d'un gateauu
+     *
+     * @param int $idgateau
+     * @return mixed
+     */
 
     function count(int $idgateau)
     {
