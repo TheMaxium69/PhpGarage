@@ -24,6 +24,8 @@ class Gateau extends Controller
         //on recupère tous les garages
         $gateaux = $this->model->findAll();
 
+
+
         //on fixe le titre de la page
         $titreDeLaPage = "Gateaux";
 

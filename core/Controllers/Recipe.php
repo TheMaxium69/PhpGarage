@@ -73,7 +73,7 @@ class Recipe extends Controller
                     if (!$recipeEdit) {
                         $recipe_id = null;
                         $titreDeLaPage = "nouveau recette";
-                        \Rendering::render('gateaux/addrecipe',
+                        \Rendering::render('recipes/addrecipe',
                             compact('gateau_id', 'recipe_id', 'titreDeLaPage'));
                     } else {
 
@@ -82,7 +82,7 @@ class Recipe extends Controller
 
 
                         $titreDeLaPage = "Editer $recipeName";
-                        \Rendering::render('gateaux/addrecipe',
+                        \Rendering::render('recipes/addrecipe',
                             compact('gateau_id',  'recipe', 'recipe_id', 'titreDeLaPage'));
 
                     }

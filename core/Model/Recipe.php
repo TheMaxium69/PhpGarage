@@ -63,4 +63,13 @@ class Recipe extends Model
         ]);
     }
 
+    function count(int $idgateau)
+    {
+        $maRequeteCountRecipe =  $this->pdo->prepare("SELECT COUNT(*) FROM `recipe` WHERE `gateau_id`=:gateau_id");
+        $maRequeteCountRecipe->execute(["gateau_id"=> $idgateau]);
+
+        $recipenb = $maRequeteCountRecipe->fetchColumn();
+        return $recipenb;
+
+    }
 }

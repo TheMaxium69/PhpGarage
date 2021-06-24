@@ -17,8 +17,14 @@
     <div class="row">
         <p><strong>  <?php echo $gateau['name']; ?>  </strong></p>
         <p><strong>  <?php echo $gateau['gout']; ?>  </strong></p>
+        <p><strong>  il y a <?php $modelRecipe = new \Model\Recipe();
+                                  $recipenb = $modelRecipe->count($gateau['id']);
+                                  echo $recipenb;
+                                  ?> de recette</strong></p>
+
         <a href="index.php?controller=gateau&task=show&id=<?php echo $gateau['id']; ?>" class="btn btn-primary">Voir ce gateau</a>
         <a href="index.php?controller=gateau&task=suppr&id=<?php echo $gateau['id']; ?>" class="btn btn-danger">Supprimer ce gateau</a>
+
     </div>
     <hr>
 
