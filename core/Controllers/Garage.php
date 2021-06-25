@@ -9,15 +9,6 @@ class Garage extends Controller
 
     protected $modelName = \Model\Garage::class;
 
-
-
-
-    /**
-     * afficher l'accueil du site
-     * 
-     * 
-     */
-
     public function index(){
 
 

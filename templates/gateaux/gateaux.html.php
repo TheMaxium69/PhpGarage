@@ -20,6 +20,7 @@
                                   $recipenb = $modelRecipe->count($gateau['id']);
                                   echo $recipenb;
                                   ?> de recette</strong></p>
+        <a href="index.php?controller=makes&task=add&idgateau=<?php echo $gateau['id'];?>" class="btn btn-warning">J'ai fait ce gâteau</a>
         <a href="index.php?controller=gateau&task=show&id=<?php echo $gateau['id']; ?>" class="btn btn-primary">Voir ce gateau</a>
         <a href="index.php?controller=gateau&task=suppr&id=<?php echo $gateau['id']; ?>" class="btn btn-danger">Supprimer ce gateau</a>
     </div>

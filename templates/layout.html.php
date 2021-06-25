@@ -36,7 +36,7 @@
 
 
 
-          <?php echo $contenuDeLaPage ?>
+          <?php echo $contenuDeLaPage?>
 
 
 <h2>Bas de la page</h2>
