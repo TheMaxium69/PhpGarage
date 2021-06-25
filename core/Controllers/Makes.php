@@ -25,10 +25,4 @@ class Makes extends Controller
         \Http::redirect('index.php?controller=gateau&task=show&id='.$_GET['idgateau']);
     }
 
-    public function count()
-    {
-
-
-    }
-
 }
