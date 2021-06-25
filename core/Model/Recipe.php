@@ -25,6 +25,8 @@ class Recipe extends Model
         $resultat->execute(["gateau_id"=> $gateau_id]);
 
         $recipe = $resultat->fetchAll();
+
+
         return $recipe;
     }
 
