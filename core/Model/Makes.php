@@ -8,7 +8,6 @@ class Makes extends Model
 
     protected $table = "makes";
 
-
     function insert(int $tab_id, string $tab_name)
     {
 
