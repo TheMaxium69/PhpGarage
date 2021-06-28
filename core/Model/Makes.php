@@ -25,7 +25,6 @@ class Makes extends Model
                 $maRequeteInsertMakesRecipe->execute([
                     'tab_id' => $tab_id
                 ]);
-
         }
     }
 
@@ -39,7 +38,7 @@ class Makes extends Model
             return $makesGateauNb;
 
         } else if ($tab_name == "recipe_id"){
-
+            
             $maRequeteCountRecipeMakes =  $this->pdo->prepare("SELECT COUNT(*) FROM `makes` WHERE `recipe_id`=:tab_id");
             $maRequeteCountRecipeMakes->execute(["tab_id"=> $tab_id]);
             $makesRecipeNb = $maRequeteCountRecipeMakes->fetchColumn();
