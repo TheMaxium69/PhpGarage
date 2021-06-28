@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="39fc72a5-897f-4048-ad2d-3c3927d2fc99" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/core/Controllers/Makes.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Controllers/Makes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/gateaux/gateaux.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gateaux/gateaux.html.php" afterDir="false" />
-    </list>
+    <list default="true" id="39fc72a5-897f-4048-ad2d-3c3927d2fc99" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +24,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Github/TyroBotDiscord" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -36,17 +33,6 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Run" type="FirefoxRemoteDebugType" activateToolWindowBeforeRun="false">
       <method v="2">
         <option name="LaunchBrowser.Before.Run" url="http://localhost/PhpGarage/" />
@@ -63,7 +49,8 @@
       <updated>1624605095600</updated>
       <workItem from="1624605097313" duration="3374000" />
       <workItem from="1624608508356" duration="793000" />
-      <workItem from="1624609340085" duration="1940000" />
+      <workItem from="1624609340085" duration="4178000" />
+      <workItem from="1624632246795" duration="120000" />
     </task>
     <servers />
   </component>
