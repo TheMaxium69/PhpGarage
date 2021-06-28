@@ -22,7 +22,7 @@ class Gateau extends Controller
 
 
         //on recupère tous les garages
-        $gateaux = $this->model->findAll();
+        $gateaux = $this->model->findAll($this->modelName);
 
 
 

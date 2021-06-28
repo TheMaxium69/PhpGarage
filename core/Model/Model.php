@@ -2,6 +2,8 @@
 
 namespace Model;
 
+use PDO;
+
 //require_once "core/database.php";
 
 abstract class Model
@@ -43,13 +45,13 @@ public function find(int $id)
  * 
  * @return array
  */
-public function findAll() : array
+public function findAll(string $className) : array
 {
        
 
         $resultat =  $this->pdo->query("SELECT * FROM {$this->table}");
         
-        $items = $resultat->fetchAll();
+        $items = $resultat->fetchAll( PDO::FETCH_CLASS, $className);
 
         return $items;
 

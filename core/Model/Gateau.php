@@ -8,6 +8,11 @@ class Gateau extends Model
     protected $table = "gateaux";
 
 
+    public $id;
+    public $name;
+    public $gout;
+
+
     /**
      * @param string $name
      * @param string $gout
