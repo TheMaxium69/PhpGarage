@@ -8,40 +8,40 @@ class Makes extends Model
 
     protected $table = "makes";
 
-    function insert(int $tab_id, string $tab_name)
+    function insert(int $col_id, string $col_name)
     {
 
-        if ($tab_name == "gateau_id") {
+        if ($col_name == "gateau_id") {
 
-            $maRequeteInsertMakesGateau = $this->pdo->prepare("INSERT INTO `makes`(`gateau_id`) VALUES (:tab_id)");
+            $maRequeteInsertMakesGateau = $this->pdo->prepare("INSERT INTO `makes`(`gateau_id`) VALUES (:col_id)");
 
             $maRequeteInsertMakesGateau->execute([
-                'tab_id' => $tab_id
+                'col_id' => $col_id
             ]);
-        } else if ($tab_name == "recipe_id") {
+        } else if ($col_name == "recipe_id") {
 
-                $maRequeteInsertMakesRecipe = $this->pdo->prepare("INSERT INTO `makes`(`recipe_id`) VALUES (:tab_id)");
+                $maRequeteInsertMakesRecipe = $this->pdo->prepare("INSERT INTO `makes`(`recipe_id`) VALUES (:col_id)");
 
                 $maRequeteInsertMakesRecipe->execute([
-                    'tab_id' => $tab_id
+                    'col_id' => $col_id
                 ]);
         }
     }
 
-    function count(int $tab_id, string $tab_name)
+    function count(int $col_id, string $col_name)
     {
-        if ($tab_name == "gateau_id"){
+        if ($col_name == "gateau_id"){
 
-            $maRequeteCountGateauMakes =  $this->pdo->prepare("SELECT COUNT(*) FROM `makes` WHERE `gateau_id`=:tab_id");
-            $maRequeteCountGateauMakes->execute(["tab_id"=> $tab_id]);
-            $makesGateauNb = $maRequeteCountGateauMakes->fetchColumn();
+            $maRequeteCountGateauMakes =  $this->pdo->prepare("SELECT * FROM `makes` WHERE `gateau_id`=:col_id");
+            $maRequeteCountGateauMakes->execute(["col_id"=> $col_id]);
+            $makesGateauNb = $maRequeteCountGateauMakes->rowCount();
             return $makesGateauNb;
 
-        } else if ($tab_name == "recipe_id"){
-            
-            $maRequeteCountRecipeMakes =  $this->pdo->prepare("SELECT COUNT(*) FROM `makes` WHERE `recipe_id`=:tab_id");
-            $maRequeteCountRecipeMakes->execute(["tab_id"=> $tab_id]);
-            $makesRecipeNb = $maRequeteCountRecipeMakes->fetchColumn();
+        } else if ($col_name == "recipe_id"){
+
+            $maRequeteCountRecipeMakes =  $this->pdo->prepare("SELECT * FROM `makes` WHERE `recipe_id`=:col_id");
+            $maRequeteCountRecipeMakes->execute(["col_id"=> $col_id]);
+            $makesRecipeNb = $maRequeteCountRecipeMakes->rowCount();
             return $makesRecipeNb;
         }
 
