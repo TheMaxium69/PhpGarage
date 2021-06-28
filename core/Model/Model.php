@@ -34,7 +34,7 @@ public function find(int $id)
 
   $maRequete->execute(['id' => $id]);
 
-  $item = $maRequete->fetch();
+  $item = $maRequete->fetchObject();
 
   return $item;
 

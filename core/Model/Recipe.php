@@ -2,11 +2,17 @@
 
 namespace Model;
 
+use PDO;
 
 class Recipe extends Model
 {
 
     protected $table = "recipe";
+
+    public $id;
+    public $name;
+    public $desc;
+    public $gateau_id;
 
     /**
      * trouve toutes les annonces liées à un garage
@@ -17,15 +23,14 @@ class Recipe extends Model
      *
      */
 
-    function findAllByGateau(int $gateau_id)
+    function findAllByGateau(int $gateau_id, string $className)
     {
 
 
         $resultat =  $this->pdo->prepare('SELECT * FROM recipe WHERE gateau_id = :gateau_id');
         $resultat->execute(["gateau_id"=> $gateau_id]);
 
-        $recipe = $resultat->fetchAll();
-
+        $recipe = $resultat->fetchAll( PDO::FETCH_CLASS, $className);
 
         return $recipe;
     }

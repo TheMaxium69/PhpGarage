@@ -78,7 +78,7 @@ class Recipe extends Controller
                     } else {
 
                             $recipe = $this->model->find($recipe_id);
-                        $recipeName = $recipe['name'];
+                        $recipeName = $recipe->name;
 
 
                         $titreDeLaPage = "Editer $recipeName";

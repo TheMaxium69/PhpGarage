@@ -9,6 +9,7 @@ class Gateau extends Controller
 {
 
     protected $modelName = \Model\Gateau::class;
+    
 
 
     /**
@@ -82,11 +83,10 @@ class Gateau extends Controller
 
         $gateau = $this->model->find($gateau_id);
 
-
         $modelRecipe = new \Model\Recipe();
-        $recipes = $modelRecipe->findAllByGateau($gateau_id);
-
-        $titreDeLaPage = $gateau['name'];
+        $classRecipe = \Model\Recipe::class;
+        $recipes = $modelRecipe->findAllByGateau($gateau_id, $classRecipe);
+        $titreDeLaPage = $gateau->name;
 
         \Rendering::render('gateaux/gateau',
             compact('gateau', 'recipes','titreDeLaPage')
@@ -149,7 +149,7 @@ class Gateau extends Controller
             }else{
 
                 $gateau = $this->model->find($gateau_id);
-                $gateauName = $gateau['name'];
+                $gateauName = $gateau->name;
 
 
                 $titreDeLaPage = "Editer $gateauName";
