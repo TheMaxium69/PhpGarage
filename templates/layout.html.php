@@ -30,6 +30,36 @@
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
       </ul>
+      <?php $modelUsers = new \Model\User();
+            $LoggedIn = $modelUsers->isLoggedIn();
+            if($LoggedIn){ ?>
+            
+            <ul class="navbar-nav form-inline">
+            <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Compte de <?php $user = $_SESSION['user']; 
+                            echo $user['userName']; ?>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="index.php?controller=user&task=index">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="index.php?controller=user&task=loggout">Se Deconnecter</a></li>
+          </ul>
+        </li>
+        </ul>
+           <?php } else { ?>
+
+              <ul class="navbar-nav form-inline">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.php?controller=user&task=login">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.php?controller=user&task=signup">Sign-up</a>
+                </li>
+              </ul>
+
+            <?php } ?>
+      
     </div>
   </div>
 </nav>
