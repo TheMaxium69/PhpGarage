@@ -8,6 +8,11 @@ class Make extends Model
 
     protected $table = "makes";
 
+    public $id;
+    public $recipe_id;
+    public $gateau_id;
+
+
     function insert(int $col_id, string $col_name)
     {
 
