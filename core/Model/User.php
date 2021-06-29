@@ -31,29 +31,30 @@ class User extends Model
         $user = $this->findByUsername($username);
 
         if($user && $user->password == $password){
-                $reponseLogin = true;
                 $userTab = [
-                    "userId" => $user->id,
-                    "userName" => $user->username,
-                    "userEmail" => $user->email,
-                    "userPassword" => $user->password
+                    "id" => $user->id,
+                    "name" => $user->username,
+                    "email" => $user->email,
+                    "password" => $user->password
                 ];
                 $_SESSION["user"]= $userTab;
+                return true;
         }else{
-            $reponseLogin = false;
+            return false;
         }
-
-        return $reponseLogin;
     }
 
     function isLoggedIn(){
-        if(isset($_SESSION['user']) ){
-            $reponseIsLoggedIn = true;
+        if(isset($_SESSION['user'])){
+            $user = $_SESSION['user']; 
+            if($user['id']){
+                return true;
+            }else{
+                return false;
+            }
         }else{
-            $reponseIsLoggedIn = false;
+            return false;
         }
-
-        return $reponseIsLoggedIn;
     }
 
     function loggout(){

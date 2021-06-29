@@ -38,7 +38,7 @@
             <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Compte de <?php $user = $_SESSION['user']; 
-                            echo $user['userName']; ?>
+                            echo $user['name']; ?>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="index.php?controller=user&task=index">Profile</a></li>
