@@ -1,3 +1,4 @@
+<?php $modelUser = new \Model\User();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,15 +31,14 @@
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
       </ul>
-      <?php $modelUsers = new \Model\User();
-            $LoggedIn = $modelUsers->isLoggedIn();
+      <?php $LoggedIn = $modelUser->isLoggedIn();
             if($LoggedIn){ ?>
             
             <ul class="navbar-nav form-inline">
             <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Compte de <?php $user = $_SESSION['user']; 
-                            echo $user['name']; ?>
+            Compte de <?php $user = $modelUser->getUser();
+                            echo $user->username; ?>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="index.php?controller=user&task=index">Profile</a></li>
@@ -66,7 +66,8 @@
 
 
 
-          <?php echo $contenuDeLaPage?>
+          
+             <?php echo $contenuDeLaPage?>
 
 
 <h2>Bas de la page</h2>

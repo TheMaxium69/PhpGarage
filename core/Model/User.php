@@ -61,5 +61,15 @@ class User extends Model
         session_unset();
     }
 
+    function getUser(){
+            $userSession = $_SESSION['user']; 
+            $user = new User();
+            $user->id = $userSession['id'];
+            $user->username = $userSession['name'];
+            $user->email = $userSession['email'];
+            $user->password = $userSession['password'];
+            return $user;
+    }
+
 
 }
