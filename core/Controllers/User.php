@@ -53,15 +53,22 @@ class User extends Controller
 
             if(!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['passwordConfirm'])){
 
-                $username = $_POST['username'];
-                $email = $_POST['email'];
-                $password = $_POST['password'];
-                $passwordConfirm = $_POST['passwordConfirm'];
+                $user = new \Model\User();
+                $user->username = $_POST['username'];
+                $user->email = $_POST['email'];
+                $user->password = $_POST['password'];
 
-                $reponse = $this->model->signup($username, $email, $password, $passwordConfirm);
+                $isUser = $this->model->findByUsername($user->username);
 
-                if(!$reponse){
-                    \Http::redirect('index.php?controller=gateau&task=index&info=signup');
+                if(!$isUser){
+                    if($_POST['password'] == $_POST['passwordConfirm']){
+                        $this->model->signup($user);
+                        \Http::redirect('index.php?controller=gateau&task=index&info=signup');
+                    }else{
+                        $reponse = "Votre mots de passe n'est pas le même";
+                    }
+                }else{
+                    $reponse ="Votre Username est déjà utiliser";
                 }
             }
             
