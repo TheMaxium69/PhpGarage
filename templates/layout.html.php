@@ -18,18 +18,20 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php?controller=garage&task=index">Garage</a>
+          <a class="nav-link disabled" aria-current="page" aria-disabled="true" href="index.php">Garage</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="http://localhost/PhpGateau/index.php?controller=gateau&task=index">Gateau</a>
-        </li>
-          <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <a class="nav-link active" aria-current="page" href="http://localhost/PhpGateau/index.php">Gateau</a>
         </li>
       </ul>
+      <ul class="navbar-nav form-inline">
+                <li class="nav-item">
+                  <a class="nav-link disabled" aria-current="page" aria-disabled="true" href="index.php?controller=user&task=login">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" aria-current="page" aria-disabled="true" href="index.php?controller=user&task=signup">Sign-up</a>
+                </li>
+              </ul>
     </div>
   </div>
 </nav>
