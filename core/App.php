@@ -5,7 +5,7 @@ class App
     
     public static function process()
     {
-        $controllerName = "gateau";
+        $controllerName = "garage";
         $task = "index";
 
             if(!empty($_GET['controller'])){

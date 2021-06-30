@@ -1,4 +1,3 @@
-<?php $modelUser = new \Model\User();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +11,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php">PhpGarage/Gateaux</a>
+    <a class="navbar-brand" href="index.php">PhpGarage</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -22,7 +21,7 @@
           <a class="nav-link active" aria-current="page" href="index.php?controller=garage&task=index">Garage</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php?controller=gateau&task=index">Gateau</a>
+          <a class="nav-link active" aria-current="page" href="http://localhost/PhpGateau/index.php?controller=gateau&task=index">Gateau</a>
         </li>
           <li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -31,49 +30,9 @@
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
       </ul>
-      <?php $LoggedIn = $modelUser->isLoggedIn();
-            if($LoggedIn){ ?>
-            
-            <ul class="navbar-nav form-inline">
-            <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Compte de <?php $user = $modelUser->getUser();
-                            echo $user->username; ?>
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="index.php?controller=user&task=index">Profile</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="index.php?controller=user&task=loggout">Se Deconnecter</a></li>
-          </ul>
-        </li>
-        </ul>
-           <?php } else { ?>
-
-              <ul class="navbar-nav form-inline">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="index.php?controller=user&task=login">Login</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="index.php?controller=user&task=signup">Sign-up</a>
-                </li>
-              </ul>
-
-            <?php } ?>
-      
     </div>
   </div>
 </nav>
-
-<?php if(isset($_GET['info']) && $_GET['info']== "signup"){ ?>
-        <div class="alert alert-success" role="alert">
-            Successfully registered !
-        </div>
-    <?php }?>
-    <?php if(isset($_GET['info']) && $_GET['info']== "login"){ ?>
-        <div class="alert alert-success" role="alert">
-            Successfully login !
-        </div>
-    <?php } ?>
 
 
           

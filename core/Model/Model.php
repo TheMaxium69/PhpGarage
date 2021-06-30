@@ -34,7 +34,7 @@ public function find(int $id)
 
   $maRequete->execute(['id' => $id]);
 
-  $item = $maRequete->fetchObject();
+  $item = $maRequete->fetch();
 
   return $item;
 
@@ -45,13 +45,13 @@ public function find(int $id)
  * 
  * @return array
  */
-public function findAll(string $className) : array
+public function findAll() : array
 {
        
 
         $resultat =  $this->pdo->query("SELECT * FROM {$this->table}");
         
-        $items = $resultat->fetchAll( PDO::FETCH_CLASS, $className);
+        $items = $resultat->fetchAll();
 
         return $items;
 
