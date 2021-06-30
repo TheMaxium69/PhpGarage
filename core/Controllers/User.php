@@ -43,4 +43,20 @@ class User extends Controller
             }
 
     }
+
+    public function signup(){
+        $LoggedIn = $this->model->isLoggedIn();
+        if($LoggedIn){
+            \Http::redirect('index.php?controller=gateau&task=index');
+        }else{
+
+
+            
+
+            $titreDeLaPage = "Inscription";
+            \Rendering::render('users/signup', compact('reponse', 'titreDeLaPage'));
+        }
+
+    }
+
 }
