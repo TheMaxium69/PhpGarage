@@ -64,6 +64,16 @@
   </div>
 </nav>
 
+<?php if(isset($_GET['info']) && $_GET['info']== "signup"){ ?>
+        <div class="alert alert-success" role="alert">
+            Successfully registered !
+        </div>
+    <?php }?>
+    <?php if(isset($_GET['info']) && $_GET['info']== "login"){ ?>
+        <div class="alert alert-success" role="alert">
+            Successfully login !
+        </div>
+    <?php } ?>
 
 
           

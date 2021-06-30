@@ -17,7 +17,7 @@ class User extends Controller
             $passwordLogin = $_POST['password'];
                 $resultLogin = $this->model->login($usernameLogin, $passwordLogin);
                 if($resultLogin){
-                    \Http::redirect('index.php?controller=gateau&task=index');
+                    \Http::redirect('index.php?controller=gateau&task=index&info=login');
                 }else{
                     $reponse = "Erreur de connexion";
                 }
@@ -51,21 +51,20 @@ class User extends Controller
         }else{
             $reponse = null;
 
-
             if(!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['passwordConfirm'])){
+
                 $username = $_POST['username'];
                 $email = $_POST['email'];
                 $password = $_POST['password'];
                 $passwordConfirm = $_POST['passwordConfirm'];
+
                 $reponse = $this->model->signup($username, $email, $password, $passwordConfirm);
 
                 if(!$reponse){
-                    \Http::redirect('index.php?controller=gateau&task=index');
+                    \Http::redirect('index.php?controller=gateau&task=index&info=signup');
                 }
             }
             
-            
-
             $titreDeLaPage = "Inscription";
             \Rendering::render('users/signup', compact('reponse', 'titreDeLaPage'));
         }
