@@ -71,5 +71,30 @@ class User extends Model
             return $user;
     }
 
+    function signup(string $username, string $email, string $password, string $passwordConfirm)
+    {
+        $isUser = $this->findByUsername($username);
 
+        if(!$isUser){
+            if($password == $passwordConfirm){
+                $this->insert($username, $email, $password);
+            }else{
+                return "Votre mots de passe n'est pas le même";
+            }
+        }else{
+            return "Votre Username est déjà utiliser";
+        }
+    }
+
+    function insert(string $username, string $email, string $password){
+
+        $maRequeteAddUser = $this->pdo->prepare("INSERT INTO users (username, email, password) 
+          VALUES (:username, :email, :password)");
+
+        $maRequeteAddUser->execute([
+            'username' => $username,
+            'email' => $email,
+            'password' => $password
+        ]);
+    }
 }
